@@ -8,6 +8,7 @@ use SafeCharge\Api\Service\BaseService;
 use SafeCharge\Api\Service\Payments\ThreeDsecure;
 use SafeCharge\Api\Service\PaymentService;
 use SafeCharge\Api\Service\UserService;
+use SafeCharge\Api\Service\WithdrawService;
 
 class SafeCharge
 {
@@ -30,6 +31,11 @@ class SafeCharge
      * @var UserService
      */
     private $userService;
+
+    /**
+     * @var WithdrawService
+     */
+    private $withdrawService;
 
     /**
      * @var AuthenticationManagement
@@ -125,5 +131,17 @@ class SafeCharge
             $this->securePaymentService = new ThreeDsecure($this->client);
         }
         return $this->securePaymentService;
+    }
+
+    /**
+     * @return WithdrawService
+     * @throws Exception\ConfigurationException
+     */
+    public function getWithdrawService()
+    {
+        if (is_null($this->withdrawService)) {
+            $this->withdrawService = new WithdrawService($this->client);
+        }
+        return $this->withdrawService;
     }
 }
