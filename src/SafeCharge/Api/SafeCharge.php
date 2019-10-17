@@ -5,6 +5,7 @@ namespace SafeCharge\Api;
 
 use SafeCharge\Api\Service\AuthenticationManagement;
 use SafeCharge\Api\Service\BaseService;
+use SafeCharge\Api\Service\Payments\ThreeDsecure;
 use SafeCharge\Api\Service\PaymentService;
 use SafeCharge\Api\Service\UserService;
 
@@ -19,6 +20,11 @@ class SafeCharge
      * @var PaymentService
      */
     private $paymentService;
+
+    /**
+     * @var ThreeDsecure
+     */
+    private $securePaymentService;
 
     /**
      * @var UserService
@@ -107,5 +113,17 @@ class SafeCharge
             $this->baseService = new BaseService($this->client);
         }
         return $this->baseService;
+    }
+
+    /**
+     * @return ThreeDsecure
+     * @throws Exception\ConfigurationException
+     */
+    public function getSecurePaymentService()
+    {
+        if (is_null($this->paymentService)) {
+            $this->securePaymentService = new ThreeDsecure($this->client);
+        }
+        return $this->securePaymentService;
     }
 }
