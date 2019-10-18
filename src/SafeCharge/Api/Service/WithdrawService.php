@@ -243,7 +243,7 @@ class WithdrawService extends BaseService
         $mandatoryFields = [
             'merchantId',
             'merchantSiteId',
-            'userToken',
+            'userTokenId',
             'userPMId',
             'userDetails',
             'amount',
