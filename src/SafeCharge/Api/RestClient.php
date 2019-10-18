@@ -63,6 +63,14 @@ class RestClient
         return $this->config->getEndpoint() . '/' . self::API_VERSION . '/';
     }
 
+    /**
+     * @return string
+     * @throws Exception\ConfigurationException
+     */
+    public function getWithdraralUrl()
+    {
+        return $this->config->getEndpoint() . '/withdrawal/';
+    }
 
     /**
      * @return HttpClient
