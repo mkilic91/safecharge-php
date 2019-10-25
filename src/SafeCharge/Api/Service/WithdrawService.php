@@ -21,7 +21,7 @@ class WithdrawService extends BaseService
     public function __construct(RestClient $client)
     {
         parent::__construct($client);
-        $this->apiUrl = $this->client->getWithdraralUrl();
+        $this->apiUrl = $this->client->getWithdrawalUrl();
     }
 
     /**

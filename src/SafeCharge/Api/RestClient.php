@@ -67,7 +67,7 @@ class RestClient
      * @return string
      * @throws Exception\ConfigurationException
      */
-    public function getWithdraralUrl()
+    public function getWithdrawalUrl()
     {
         return $this->config->getEndpoint() . '/withdrawal/';
     }
