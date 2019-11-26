@@ -328,6 +328,8 @@ class WithdrawService extends BaseService
             'merchantId',
             'merchantSiteId',
             'wdRequestId',
+            'merchantWDRequestId',
+            'merchantUniqueId',
             'timeStamp',
             'checksum'
         ];
@@ -365,6 +367,6 @@ class WithdrawService extends BaseService
 
         $this->validate($params, $mandatoryFields);
 
-        return $this->requestJson($params, 'getCandidatesForRefund.do');
+        return $this->requestJson($params, 'getRequests.do');
     }
 }
