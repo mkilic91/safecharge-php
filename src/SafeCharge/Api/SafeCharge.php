@@ -127,7 +127,7 @@ class SafeCharge
      */
     public function getSecurePaymentService()
     {
-        if (is_null($this->paymentService)) {
+        if (is_null($this->securePaymentService)) {
             $this->securePaymentService = new ThreeDsecure($this->client);
         }
         return $this->securePaymentService;
